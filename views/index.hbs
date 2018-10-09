@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+</head>
+<body>
+
+
+
+
+<div class="row">
+    <div class="col-sm-3 col-md-3" style="background-color:yellow;">
+
+    </div>
+    
+
+<!--<section class="Task Addition">-->
+
+
+    {{# if u}}
+
+    <div class="col-sm-3 col-md-9" >
+            <div class="container-fluid">
+                <div class="jumbotron">
+
+
+    <form action="/updateproduct2" method="post">
+        <div id="div2"></div>
+
+        <div class="form-group">
+            <label >ProductName</label>
+            <input type="text" class="form-control" id="" name="productname" placeholder="ProductName">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+    </div>
+    </div>
+    </div>
+
+    {{/if}}
+
+    {{# if u2}}
+
+     <div class="col-sm-3 col-md-9" >
+                <div class="container-fluid">
+                    <div class="jumbotron">
+                    {{update arr}}
+
+
+                    </div>
+                    </div>
+                    </div>
+
+
+
+    {{/if}}
+
+     {{# if p}}
+
+         <div class="col-sm-3 col-md-9" >
+                    <div class="container-fluid">
+                        <div class="jumbotron">
+                         <h4>ProductName : {{product}}</h4>
+
+                                            {{# each spec}}
+                                            {{product}}
+
+                                             <input type="button" class="btn btn-info btn-lg" value={{this}} onclick="location.href = '/specification?id1={{this}}&id2={{../product}}';">&nbsp &nbsp &nbsp
+
+
+                                               <!--<a  class="btn btn-secondary btn-lg"  href="/specification?id1={{this}}&id2={{../product}} " id1={{this}} id2={{../product}}  role="button">{{this}}</a>-->
+                                            <!--<a href="/specification?id1={{this}}&id2={{../product}} " id1={{this}} id2={{../product}} class="btn btn-secondary btn-lg" role="button">{{this}}</a>-->
+
+                                            {{/each}}
+
+
+                        </div>
+                        </div>
+                        </div>
+
+
+
+      {{/if}}
+
+      {{# if p2}}
+      <div class="col-sm-3 col-md-9" >
+                          <div class="container-fluid">
+                              <div class="jumbotron">
+                               <div class="container">
+
+                                {{spec spec_array}}
+
+                                </div>
+
+                             <input type="button" class="btn btn-info btn-lg" value="Add Option" onclick="location.href = '/specification2?id1={{product}}&id2={{specification}}';">&nbsp &nbsp &nbsp
+
+
+
+
+                         </div>
+                      </div>
+                  </div>
+
+
+      {{/if}}
+
+
+      {{# if p3}}
+      <div class="col-sm-3 col-md-9" >
+                                <div class="container-fluid">
+                                    <div class="jumbotron">
+
+          <form action="/specification3" method="post">
+                            <div id="div2"></div>
+
+                               <div class="form-group">
+                                   <label >Option :</label>
+                                   <input type="text" class="form-control" id="" name="option" placeholder="Specification">
+                               </div>
+
+                               <div class="form-group">
+                                                          <label >Price :</label>
+                                                          <input type="number" class="form-control" id="" name="price" placeholder="Price">
+                                                      </div>
+
+                                    <div class="form-group">
+                                                         <label >Unit :</label>
+                                                                                      <input type="number" class="form-control" id="" name="unit" placeholder="Unit">
+                                                                                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                               <button type="submit" class="btn btn-primary">MoreOption</button>
+                                <button type="submit" class="btn btn-primary" formaction="/specification4">Done</button>
+
+
+                        </form>
+
+                        </div>
+                        </div>
+                        </div>
+
+
+
+      {{/if}}
+
+
+
+
+
+    {{# if d}}
+    <div class="col-sm-3 col-md-9" >
+            <div class="container-fluid">
+                <div class="jumbotron">
+
+        <form action="/delete2" method="post">
+
+    {{# each product}}
+
+    <input type='checkbox' name='check1' id='check'  value='{{this}}'>  {{this}}
+    {{/each}}
+                   <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    </form>
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+    {{/if}}
+
+
+
+
+    {{# if start}}
+    <div class="col-sm-3 col-md-9" >
+        <div class="container-fluid">
+            <div class="jumbotron">
+    <form action="/print1" method="post">
+        <div id="div2"></div>
+
+           <div class="form-group">
+               <label >ProductName</label>
+               <input type="text" class="form-control" id="" name="productname" placeholder="ProductName">
+           </div>
+           <!--<div class="form-group">-->
+               <!--<label for="inputPassword">Password</label>-->
+               <!--<input type="password" class="form-control" id="inputPassword" placeholder="Password">-->
+           <!--</div>-->
+           <!--<div class="checkbox">-->
+               <!--<label><input type="checkbox"> Remember me</label>-->
+           <!--</div>-->
+           <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+
+
+     {{# if s}}
+        <div class="col-sm-3 col-md-9" >
+            <div class="container-fluid">
+                <div class="jumbotron">
+        <form action="/print2" method="post">
+            <div id="div2"></div>
+
+               <div class="form-group">
+                   <label >Specification :</label>
+                   <input type="text" class="form-control" id="" name="specification" placeholder="Specification">
+               </div>
+                                   <label >SpecificationType</label>
+
+
+
+              <select class="selectpicker" data-style="btn-info" name="type"> <option disabled selected value> -- Select Type -- </option>
+                 {{# each typearray}}
+                                                                                                    <option value={{this}} >{{this}}</option>
+
+                                                                                                    {{/each}}
+
+                                                                                                    </select>
+
+
+   <div class="checkbox">
+                  <label><input type="checkbox"  name="check1" value="platecost">Include plate cost</label>
+                   </div>
+
+
+                    <div class="checkbox">
+                                    <label><input type="checkbox"  name="check2" value="papercost">Include paper cost</label>
+                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+               <button type="submit" class="btn btn-primary">Submit</button>
+               <button type="submit" class="btn btn-primary" formaction="/print6">Save</button>
+               <button type="submit" class="btn btn-primary" formaction="/gntfnc2">FinalFunction</button>
+
+
+
+        </form>
+
+        <form>
+              <label for="comment">ProductDetails:</label>
+              <textarea class="form-control" rows="2" id="comment">
+                {{# each data}}
+                   {{this}}
+                   {{/each}}
+               </textarea>
+          </form>
+
+
+                </div>
+            </div>
+        </div>
+        {{/if}}
+
+         {{# if s2}}
+
+            {{# if c}}
+                <div class="col-sm-3 col-md-9" >
+                            <div class="container-fluid">
+                                <div class="jumbotron">
+                        <form action="/print2" method="post">
+                            <div id="div2"></div>
+
+                               <div class="form-group">
+                                   <label >Specification :</label>
+                                   <input type="text" class="form-control" id="" name="specification" placeholder="Specification">
+                               </div>
+                                                   <label >SpecificationType</label>
+
+
+
+                              <select class="selectpicker" data-style="btn-info" name="type"> <option disabled selected value> -- Select Type -- </option>
+                                 {{# each typearray}}
+                                                                                                                    <option value={{this}} >{{this}}</option>
+
+                                                                                                                    {{/each}}
+
+                                                                                                                    </select>
+
+
+                   <div class="checkbox">
+                                  <label><input type="checkbox"  name="check1" value="platecost">Include plate cost</label>
+                                   </div>
+
+                              <div class="checkbox">
+                                               <label><input type="checkbox"  name="check2" value="papercost">Include paper cost</label>
+                                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                               <button type="submit" class="btn btn-primary">Submit</button>
+                               <button type="submit" class="btn btn-primary" formaction="/print6">Save</button>
+                              <button type="submit" class="btn btn-primary" formaction="/gntfnc2">FinalFunction</button>
+
+
+
+                        </form>
+
+                        <form>
+                              <label for="comment">ProductDetails:</label>
+                              <textarea class="form-control" rows="2" id="comment">
+                              {{fnc}}
+                               </textarea>
+                          </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {{else}}
+                <div class="col-sm-3 col-md-9" >
+                    <div class="container-fluid">
+                        <div class="jumbotron">
+
+
+                        <div class="container">
+                          <h4>Options for the {{speci}}  </h4>
+
+                        </div>
+
+                <form action="/print5" method="post">
+                    <div id="div2"></div>
+
+                       <div class="form-group">
+                           <label >Option :</label>
+                           <input type="text" class="form-control" id="" name="option" placeholder="Option">
+                       </div>
+
+                       <div class="form-group">
+                                                  <label >Price :</label>
+                                                  <input type="number" class="form-control" id="" name="price" placeholder="Price">
+                                              </div>
+
+                            <div class="form-group">
+                                                 <label >Unit :</label>
+                                                                              <input type="number" class="form-control" id="" name="unit" placeholder="Unit">
+                                                                          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                       <button type="submit" class="btn btn-primary">MoreOption</button>
+                        <button type="submit" class="btn btn-primary" formaction="/print4">GenerateFunction</button>
+
+
+
+                </form>
+
+                <form>
+                      <label for="comment">ProductDetails:</label>
+                      <textarea class="form-control" rows="2" id="comment">
+                        {{# each data}}
+                           {{this}}
+                           {{/each}}
+                       </textarea>
+
+                  </form>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                {{/if}}
+                {{/if}}
+
+
+                {{# if fn}}
+
+
+
+
+                {{/if}}
+    
+    
+
+     {{# if start2}}
+        <form action="/test/plate1" method="post">
+            <div id="div3"></div>
+
+            <input type="button" value="Order" onclick="addOrder(this)">
+
+        </form>
+                              <input type='button' value='DoneOrder' onclick='addOrderDone(this)'
+
+        {{/if}}
+
+
+      {{# if plate1}}
+
+        <form action="/test/plate2" method="post">
+                    <div id="div3"></div>
+
+                    <input type="button" value="AddDimension" onclick="addDimension(this)">
+
+                </form>
+
+                      <input type='button' value='Done' onclick='addPlate1(this)'
+
+
+
+      {{/if}}
+
+
+
+    {{# if hudai}}
+
+     {{# if chck}}
+
+       <form action="/test/print4" method="post">
+
+
+                         <div id="div2"></div>
+
+                                 <input type="button" value="AddOption" onclick="addSpecOption(this)">
+                         </form>
+
+                         <input type='button' value='Done' onclick='addProductSpec3(this)'
+       {{else}}
+
+            <div id="div2"></div>
+
+                      <input type="button" value="MoreSpecification" onclick="addProductSpec2(this)">
+                        <input type="button" value="GenerateFunction" onclick="generatefunction(this)">
+
+                        <input type='button' value='DoneSpec' onclick='addProductSpec4(this)'
+
+
+
+
+
+
+        {{/if}}
+
+        {{/if}}
+
+
+   {{# if aftername}}
+          <div id="div2"></div>
+
+          <input type="button" value="AddSpecification" onclick="addProductSpecnow(this)">
+
+
+
+
+
+      {{/if}}
+
+       {{# if afterspec}}
+             <form action="/test/print3" method="post">
+
+                 <label>SpecificationName :</label><input type="text" name="specification"/>
+
+                 <label>SpcificationType :</label>{{specpage typearray}}<br>
+                 <!--<h3>Job Number :</h3> <input type="text" name="jnum"><br>-->
+                 <!--<h3>Product Type :</h3>-->
+                 <!--{{projectpage project }}-->
+                 <!--<h3>Client Name: </h3><input type="text" name="cname">-->
+                 <!--<h3>Quantity: </h3><input type="text" name="qtn">-->
+                 <br>
+
+                 <br><input type="checkbox" name="check1" value="platecost">Include plate cost<br>
+                <input type="submit" value="Next">
+             </form>
+
+      {{/if}}
+
+       {{# if ordr}}
+
+             {{# each orderarray}}
+              <h4>{{this}}</h4>
+              {{/each}}
+
+             <input type="button" value="AddMoreProduct" onclick="addPrdct(this)">
+
+
+
+
+           {{/if}}
+
+
+      {{# if order1}}
+
+      <form action="/test/order2" method="post">
+          <h3>Order Number : {{ordercount}}<br>
+          <h3>Product  :</h3>
+          {{productpage product }}
+          <h3>Client Name: </h3><input type="text" name="cname">
+          <h3>Quantity: </h3><input type="number" name="qtn">
+          <br>
+          <input type="submit" value="Next">
+      </form>
+
+
+      {{/if}}
+
+
+      {{# if order2}}
+
+          <h3>Order Number : {{ordercount}}<br>
+          <h3>Client Name: {{cname}} </h3>
+
+                    <h3>Quantity: {{qtn}} </h3>
+          <h3>Product  :</h3>
+          {{productpage2 arr }}
+
+          <br>
+
+
+      {{/if}}
+
+
+       {{# if order4}}
+
+            <form action="/test/order6" method="post">
+                <h3>Product  :</h3>
+                {{productpage product }}
+                <h3>Quantity: </h3><input type="number" name="qtn">
+                <br>
+                <input type="submit" value="Next">
+            </form>
+
+
+                         <input type="button" value="AddMoreProduct" onclick="addPrdct(this)">
+
+
+
+            {{/if}}
+
+
+       <!--{{# if afterspec2}}-->
+
+
+
+
+
+
+        <!--{{/if}}-->
+
+
+
+
+
+
+
+
+
+
+
+
+     <!--{{# if start}}-->
+
+
+             <!--<form action="/test/signed" method="post">-->
+                        <!--<div id="div2"></div>-->
+
+                        <!--<input type="button" value="SignUp" onclick="addSignUp(this)">-->
+
+                        <!--</form>-->
+
+
+
+
+
+
+
+      <!--{{/if}}-->
+
+        <!--{{# if start2}}-->
+
+
+                   <!--<form action="/test/logged" method="post">-->
+                              <!--<div id="div3"></div>-->
+
+                              <!--<input type="button" value="LogIn" onclick="addLogIn(this)">-->
+
+                              <!--</form>-->
+
+
+
+
+
+
+
+            <!--{{/if}}-->
+
+
+              {{# if gntfnc2}}
+                  <div id="div2"></div>
+
+
+
+
+
+                 <div class="col-sm-3 col-md-9" >
+                                             <div class="container-fluid">
+                                                 <div class="jumbotron">
+                                         <form action="/gntfnc8" method="post">
+                                             <div id="div2"></div>
+
+                                                <div class="form-group">
+                                                    <label >Number :</label>
+                                                    <input type="number" class="form-control" id="" name="number" placeholder="Number">
+                                                </div>
+
+                                              <button type="submit" class="btn btn-primary">Add</button>
+
+                                              </form>
+                                              <form action="/gntfnc9" method="post">
+                                                                                         <div id="div3"></div>
+                                                                    <label >Specification</label>
+
+
+
+                                               <select class="selectpicker" data-style="btn-info" name="spec"> <option disabled selected value> -- Select Type -- </option>
+                                                  {{# each specarray}}
+                                                                                                                                     <option value={{this}} >{{this}}</option>
+
+                                                                                                                                     {{/each}}
+
+                                                                                                                                     </select>
+
+
+
+                                                               <button type="submit" class="btn btn-primary">Add</button>
+
+                                                                                                           </form>
+
+                                                                     <form action="/gntfnc10" method="post">
+                                                                         <div id="div4"></div>
+                                                                         <label >Operator</label>
+
+
+
+                                                                         <select class="selectpicker" data-style="btn-info" name="optr"> <option disabled selected value> -- Select Type -- </option>
+                                                                             {{# each operatorarray}}
+                                                                             <option value={{this}} >{{this}}</option>
+
+                                                                             {{/each}}
+                                                                         </select>
+
+
+
+                                                                         <button type="submit" class="btn btn-primary">Submit</button>
+
+                                                                     </form>
+
+
+
+
+
+
+
+
+
+
+
+                                                     <input type="button" class="btn btn-info btn-lg" value="Done" onclick="location.href = '/print6';">&nbsp &nbsp &nbsp
+
+
+                                                     <form>
+                                               <label for="comment">ProductDetails:</label>
+                                               <textarea class="form-control" rows="2" id="comment">
+                                                {{fnc}}
+                                                </textarea>
+                                           </form>
+
+
+                                                 </div>
+                                             </div>
+                                         </div>
+
+              {{/if}}
+
+
+               {{# if fn}}
+                                <div id="div2"></div>
+
+
+
+
+
+                               <div class="col-sm-3 col-md-9" >
+                                                           <div class="container-fluid">
+                                                               <div class="jumbotron">
+                                                       <form action="/gntfnc3" method="post">
+                                                           <div id="div2"></div>
+
+                                                              <div class="form-group">
+                                                                  <label >Number :</label>
+                                                                  <input type="nymber" class="form-control" id="" name="number" placeholder="Number">
+                                                              </div>
+
+                                                            <button type="submit" class="btn btn-primary">Add</button>
+
+                                                            </form>
+                                                            <form action="/gntfnc4" method="post">
+                                                                                                       <div id="div3"></div>
+                                                                                  <label >Option</label>
+
+
+
+                                                             <select class="selectpicker" data-style="btn-info" name="spec"> <option disabled selected value> -- Select Type -- </option>
+                                                                {{# each mid_fuc}}
+                                                                                                                                                   <option value={{this}} >{{this}}</option>
+
+                                                                                                                                                   {{/each}}
+
+                                                                                                                                                   </select>
+
+
+
+                                                                             <button type="submit" class="btn btn-primary">Add</button>
+
+                                                                                                                         </form>
+
+                                                                                   <form action="/gntfnc5" method="post">
+                                                                                       <div id="div4"></div>
+                                                                                       <label >Operator</label>
+
+
+
+                                                                                       <select class="selectpicker" data-style="btn-info" name="optr"> <option disabled selected value> -- Select Type -- </option>
+                                                                                           {{# each operatorarray}}
+                                                                                           <option value={{this}} >{{this}}</option>
+
+                                                                                           {{/each}}
+                                                                                       </select>
+
+
+
+                                                                                       <button type="submit" class="btn btn-primary">Submit</button>
+
+                                                                                   </form>
+
+
+
+
+
+
+
+
+
+
+
+                                                                   <input type="button" class="btn btn-info btn-lg" value="Done" onclick="location.href = '/gntfnc6';">&nbsp &nbsp &nbsp
+                                                                 <input type="button" class="btn btn-info btn-lg" value="Edit" onclick="location.href = '/gntfnc11';">&nbsp &nbsp &nbsp
+
+
+
+                                                                   <form>
+                                                             <label for="comment">ProductDetails:</label>
+                                                             <textarea class="form-control" rows="2" id="comment">
+                                                              {{fnc}}
+                                                              </textarea>
+                                                         </form>
+
+
+                                                               </div>
+                                                           </div>
+                                                       </div>
+
+                            {{/if}}
+
+
+              {{# if gntfnc3}}
+              <form action="/test/gntfnc6" method="post">
+                  <div id="div2"></div>
+
+                  <!--<input type="button" value="AddSpec" onclick="spec_for_function(this)">-->
+                  <!--<input type="button" value="AddOperator" onclick="opr_for_function(this)">-->
+                  <!--<input type="button" value="AddNumber" onclick="num_for_function(this)">-->
+
+
+
+
+                  <label>Operator :</label>{{gntfnc operatorarray}}<br>
+
+                  <!--<label>Operator :</label>{{specpage operatorarray}}<br>-->
+                  <!--&lt;!&ndash;<h3>Job Number :</h3> <input type="text" name="jnum"><br>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<h3>Product Type :</h3>&ndash;&gt;-->
+                  <!--&lt;!&ndash;{{projectpage project }}&ndash;&gt;-->
+                  <!--&lt;!&ndash;<h3>Client Name: </h3><input type="text" name="cname">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<h3>Quantity: </h3><input type="text" name="qtn">&ndash;&gt;-->
+                  <!--<br>-->
+
+                  <!--<br><input type="checkbox" name="check1" value="platecost">Include plate cost<br>-->
+                  <input type="submit" value="add">
+              </form>
+
+              {{/if}}
+
+              {{# if gntfnc4}}
+              <form action="/test/gntfnc7" method="post">
+                  <div id="div2"></div>
+
+                  <!--<input type="button" value="AddSpec" onclick="spec_for_function(this)">-->
+                  <!--<input type="button" value="AddOperator" onclick="opr_for_function(this)">-->
+                  <!--<input type="button" value="AddNumber" onclick="num_for_function(this)">-->
+
+
+
+
+                  <label>Number :</label><input type="number" id="num"> <br>
+
+                   <input type="submit" value="add">
+
+              </form>
+
+              {{/if}}
+
+              {{# if gntfnc}}
+              <!--<form action="/test/print3" method="post">-->
+                  <div id="div2"></div>
+
+              <!--<div class="dropdown">-->
+                  <!--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" oninput="spec_for_process(this)">Specification-->
+                      <!--<span class="caret"></span></button>-->
+                          <!--{{# each specarray}}-->
+                       <!--{{this}}-->
+
+                          <!--{{/each}}-->
+              <!--</div>-->
+
+                <div class="form-group">
+                                                 <label >Specification :</label>
+                                                 <input type="text" class="form-control" id="" name="specification" placeholder="Specification">
+                                             </div>
+
+
+
+
+
+                            <form  action="/gntfnc5"  method="post">
+
+                                 <label>Specification :</label>
+                                 {{gntfnc specarray}}
+
+
+              <input type="submit" name="submit">
+
+                  </form>
+
+                            <form  action="/gntfnc6"  method="post">
+
+                                 <label>Specification :</label>
+                                 {{gntfnc operatorarray}}
+
+
+              <input type="submit" name="submit">
+
+                  </form>
+
+
+              <!--<select id="num" oninput="opr_for_process()">-->
+                  <!--{{# each operator}}-->
+                  <!--<option value={{this}} >{{this}}</option>-->
+
+                  <!--{{/each}}-->
+                      <form action="/test/gntfnc7" method="post">
+
+
+
+
+              <!--</select>-->
+
+              <!--<div class="dropdown">-->
+                  <!--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Specification-->
+                      <!--<span class="caret"></span></button>-->
+                  <!--<ul class="dropdown-menu">-->
+                          <!--{{# each operatorarray}}-->
+                          <!--<option value={{this}} >{{this}}</option>-->
+
+                          <!--{{/each}}-->
+                  <!--</ul>-->
+              <!--</div>-->
+
+                  <!--<input type="button" value="AddSpec" onclick="spec_for_function(this)">-->
+                  <!--<input type="button" value="AddOperator" onclick="opr_for_function(this)">-->
+                  <!--<input type="button" value="AddNumber" onclick="num_for_function(this)">-->
+
+
+
+
+                  <!--<label>SpecificationName :</label>{{specpage specarray}}<br>-->
+
+                  <!--<label>Operator :</label>{{specpage operatorarray}}<br>-->
+                  <!--&lt;!&ndash;<h3>Job Number :</h3> <input type="text" name="jnum"><br>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<h3>Product Type :</h3>&ndash;&gt;-->
+                  <!--&lt;!&ndash;{{projectpage project }}&ndash;&gt;-->
+                  <!--&lt;!&ndash;<h3>Client Name: </h3><input type="text" name="cname">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<h3>Quantity: </h3><input type="text" name="qtn">&ndash;&gt;-->
+                  <!--<br>-->
+
+                  <!--<br><input type="checkbox" name="check1" value="platecost">Include plate cost<br>-->
+                  <!--<input type="submit" value="Next">-->
+              <!--</form>-->
+                              <div id="div3"></div>
+                    <h4 style="color:blue;">{{showdata}}</h4>
+
+
+
+
+              {{/if}}
+            {{#if afterlog}}
+
+                <form action="/test/submit1" method="post">
+                <div id="div2"></div>
+
+                <input type="button" value="AddTask" onclick="addTask(this)">
+
+                </form>
+
+
+
+                {{/if}}
+
+              {{#if afterlog2}}
+
+                             <form action="/test/submit1" method="post">
+                             <div id="div2"></div>
+
+                             <input type="button" value="AddNewProject" onclick="addNewProject(this)">
+
+                             </form>
+
+
+
+                {{/if}}
+
+
+
+
+
+
+
+
+
+    {{# if chk1}}
+    <form action="/test/submit2" method="post">
+    <div id="div2"></div>
+
+    <input type="button" value="SubTask" onclick="addSubTask(this)">
+    </form>
+    <input type="button" value="Done_Subtask" onclick="addDoneSubtask(this)">
+
+
+
+
+    {{/if}}
+
+
+    {{# if chk2}}
+    <form action="/test/submit3" method="post">
+    <div id="div2"></div>
+
+    <input type="button" value="Specification" onclick="addSpec(this)">
+    </form>
+    <input type="button" value="Done_Spec" onclick="addDoneSpec(this)">
+
+
+
+
+    {{/if}}
+
+      {{# if showprjct}}
+       <form action="/test/name" method="post">
+           <h3>Job Number :</h3> <input type="text" name="jnum"><br>
+           <h3>Product Type :</h3>
+           {{projectpage project }}
+           <h3>Client Name: </h3><input type="text" name="cname">
+           <h3>Quantity: </h3><input type="text" name="qtn">
+           <br>
+           <input type="submit" value="Next">
+       </form>
+
+
+
+        {{/if}}
+
+        {{# if showdetail}}
+        <h2>Jub Number: {{jnum}} </h2>
+        <h2>Product type: {{name}}</h2>
+        <h2>Client Name: {{cname}}</h2>
+        <h2>Quantity : {{qtn}}</h2>
+
+        {{page arr}}
+
+        {{/if}}
+
+        {{# if showspec}}
+
+        {{productspec array}}
+
+        {{/if}}
+
+
+
+
+
+
+
+    {{# if chk3 }}
+    <form action="/test/submit4" method="post">
+    <div id="div2"></div>
+
+
+
+    <input type="button" value="Type" onclick="addType(this)">
+    </form>
+
+
+
+    {{/if}}
+
+    {{# if chk4 }}
+    {{#if i}}
+
+    <form action="/test/submit5" method="post">
+    <div id="div2"></div>
+
+
+
+    <input type="button" value="Option" onclick="addOption(this)">
+
+
+    </form>
+    <input type="button" value="Dola" onclick="addDone(this)">
+
+    {{else}}
+    <form action="/test/submit7" method="post">
+    <div id="div2"></div>
+
+    <input type="button" value="Specification" onclick="addSpec(this)">
+
+    </form>
+    <input type="button" value="Done_Spec" onclick="addDoneSpec(this)">
+
+
+    {{/if}}
+
+
+
+
+    {{/if}}
+
+    {{# if check2 }}
+    <form action="/test/submit2" method="post">
+    <div id="div2"></div>
+
+
+
+    <input type="button" value="Specification" onclick="addSpec(this)">
+    </form>
+
+
+
+    {{/if}}
+
+    {{# if check3 }}
+    <form action="/test/submit2" method="post">
+    <div id="div2"></div>
+
+
+
+    <input type="button" value="AddMoreSpec" onclick="addMoreSpec(this)">
+    </form>
+
+
+
+    {{/if}}
+
+
+
+
+
+
+    <!--<form action="/test/submit1" method="post">-->
+    <!--<button type="submit">Done</button>-->
+    <!--</form>-->
+
+
+    {{# if invc}}
+    <h3>Date: <span id="datetime"></span></h3>
+
+    <h3>Client:{{clntname}}</h3>
+
+
+    {{invoice invoicearray}}
+
+
+    {{/if}}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+
+        function generatefunction(button) {
+
+            document.location.href = '/test/gntfnc';
+            button.style.visibility = "hidden";
+
+
+
+
+
+        }
+
+
+        function spec_for_function(button) {
+
+            document.location.href = '/test/gntfnc2';
+            button.style.visibility = "hidden";
+
+
+            var div1=document.getElementById("div2");
+            div1.innerHTML="   <form action=\"/test/datasubmit\" method='post' ><label>Specification : </label> <input type='text' name='option'/><br> <label>Price : </label> <input type='number' name='price'/><br> <label>Unit : </label> <input type='number' name='unit'/> <button type='submit' >Add</button> <br> ";
+
+            button.style.visibility = "hidden";
+
+
+
+
+
+        }
+        function opr_for_function(button) {
+
+            document.location.href = '/test/gntfnc3';
+            button.style.visibility = "hidden";
+
+
+
+
+
+        }
+        function num_for_function(button) {
+
+            document.location.href = '/test/gntfnc4';
+            button.style.visibility = "hidden";
+
+
+
+
+
+        }
+
+
+          function addPrdct(button) {
+
+                    document.location.href = '/test/invoice2';
+                                                       button.style.visibility = "hidden";
+
+
+
+
+
+                    }
+
+
+       function addOrderDone(button) {
+
+            document.location.href = '/test/invoice';
+                                               button.style.visibility = "hidden";
+
+
+
+
+
+            }
+
+
+     function addSpecOption(button) {
+
+
+         var div1=document.getElementById("div2");
+         div1.innerHTML="<label>Option : </label> <input type='text' name='option'/><br> <label>Price : </label> <input type='number' name='price'/><br> <label>Unit : </label> <input type='number' name='unit'/> <button type='submit' >Add</button> <br> ";
+
+        button.style.visibility = "hidden";
+
+
+
+
+     }
+
+     function addDimension(button){
+
+
+                                           var div1=document.getElementById("div3");
+                                           div1.innerHTML="<label>Length : </label> <input type='number' name='length'/><br><label>Width : </label> <input type='number' name='width'/><br>  <button type='submit' >Add</button> <br> ";
+
+                                          button.style.visibility = "hidden";
+
+
+
+
+                  }
+
+        function addPlate(button) {
+
+
+              var div1=document.getElementById("div3");
+              div1.innerHTML="<label>PlateName : </label> <input type='text' name='plate'/><br> <label>Price : </label> <input type='number' name='price'/> <button type='submit' >Add</button> <br> ";
+
+             button.style.visibility = "hidden";
+
+
+
+
+          }
+
+
+             function addPlate1(button)
+                 {
+
+                                     document.location.href = '/test/plate3';
+                                        button.style.visibility = "hidden";
+
+                 }
+
+     function addOrder(){
+
+
+                                  document.location.href = '/test/order1';
+                                     button.style.visibility = "hidden";
+
+     }
+
+
+
+    function addProduct(button)
+    {
+
+        var div1=document.getElementById("div2");
+        div1.innerHTML="<label>ProductName : </label> <input type='text' name='productname'/><button type='submit' >Submit</button>"
+
+        button.style.visibility = "hidden";
+
+    }
+     function addProductSpec(button)
+        {
+
+            var div1=document.getElementById("div2");
+            div1.innerHTML="<label>SpecificationName : </label> <input type='text' name='specname'/>"
+
+            button.style.visibility = "hidden";
+
+        }
+
+      function addProductSpec2(button)
+       {
+
+                           document.location.href = '/test/print2';
+                              button.style.visibility = "hidden";
+
+       }
+
+        function addProductSpec3(button)
+              {
+
+                                  document.location.href = '/test/print5';
+                                     button.style.visibility = "hidden";
+
+              }
+
+
+        function addProductSpec4(button)
+              {
+
+                                  document.location.href = '/test/print6';
+                                     button.style.visibility = "hidden";
+
+              }
+
+          function addProductSpecnow(button)
+          {
+
+            document.location.href = '/test/print';
+                                                 button.style.visibility = "hidden";
+
+
+          }
+
+
+
+
+
+  function addSignUp(button)
+ {
+
+  var div1=document.getElementById("div2");
+         div1.innerHTML="<label>UserName : </label> <input type='text' name='uname'/><br><label>PassWord : </label> <input type='password' name='passw'/><br><label>Type : </label> <input type='text' name='type'/><br><button type='submit' >Submit</button>";
+
+
+	button.style.visibility = "hidden";
+
+  }
+
+
+  function addLogIn(button)
+   {
+
+       var div1=document.getElementById("div3");
+       div1.innerHTML="<label>UserName : </label> <input type='text' name='name'/><br><label>PassWord : </label> <input type='password' name='pass'/><br><button type='submit' >Submit</button>";
+
+
+       button.style.visibility = "hidden";
+
+   }
+
+   function addTask(button)
+   {
+
+       var div1=document.getElementById("div2");
+       div1.innerHTML="<label>Task : </label> <input type='text' name='id'/> <button type='submit' >Submit</button>";
+
+
+       button.style.visibility = "hidden";
+
+   }
+
+   function addDone(button)
+   {
+
+       document.location.href = '/test/submit6';
+       button.style.visibility = "hidden";
+
+
+
+   }
+
+
+   function addDoneSpec(button)
+   {
+
+       document.location.href = '/test/submit8';
+       button.style.visibility = "hidden";
+
+
+
+   }
+
+   function addDoneSubtask(button)
+   {
+
+       document.location.href = '/test/submit9';
+       button.style.visibility = "hidden";
+
+
+
+   }
+
+   function addSubTask(button)
+   {
+       var div1=document.getElementById("div2");
+       div1.innerHTML="<label>SubTask : </label><input type='text' name='id'/> <button type='submit'>Submit</button>";
+
+
+       button.style.visibility = "hidden";
+
+
+   }
+
+   function addSpec(button)
+   {
+       var div1=document.getElementById("div2");
+       div1.innerHTML="<label>Specification : </label><input type='text' name='id'/> <button type='submit' >Add</button>";
+
+
+       button.style.visibility = "hidden";
+
+   }
+
+
+   function addMoreSpec(button)
+   {
+       var div1=document.getElementById("div2");
+       div1.innerHTML="<input type='text' name='id'/> ";
+
+
+
+   }
+
+   function addOption(button)
+   {
+       var div1=document.getElementById("div2");
+       div1.innerHTML="<label>Option : </label> <input type='text' name='id'/>  <button type='submit' >Add</button><br> ";
+
+
+
+   }
+
+   function addType(button)
+   {
+       var div1=document.getElementById("div2");
+       div1.innerHTML="<label>Type : </label> <input type='text' name='id'/><button type='submit'>Submit</button>" ;
+
+
+
+
+   }
+
+   function check(id,button)
+   {
+       var div1=document.getElementById("div2");
+       div1.innerHTML=id;
+
+
+       if(new String("text").valueOf() == new String(id).valueOf())
+       {
+           addSpec(button);
+
+
+       }
+       else
+       {
+           addOption(button);
+
+       }
+
+
+
+   }
+
+    function addNewProject(button)
+      {
+          document.location.href = '/test/submit11';
+                button.style.visibility = "hidden";
+
+
+
+
+
+      }
+
+
+
+
+
+
+</script>
+
+ </body>
+ </html>
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="test.js"></script>
+<script type="text/javascript" src='https://code.jquery.com/jquery-1.10.2.js'>
+    function ReplaceText(){
+    var e = document.getElementById("drop");
+    e.id = "drop1"
+    //var idd= "drop"+1;
+    //$('#drop').attr( 'id', idd);
+    console.log("here  I am");
+    }
+    window.onload = ReplaceText;
+
+    </script>
+
+</head>
+<body >
+
+
+<h3>The Chuff Bucket</h3>
+Enter the foood you would like to order:<label>Product :</label><select id="userInput" oninput="process()">
+                                                                   {{# each product}}
+                                                                  <option value={{this}} >{{this}}</option>
+
+                                                                  {{/each}}
+                                                                </select>
+
+
+
+
+
+<!--<label>Product :</label><input type="text" id="userInput" oninput="process()" />-->
+
+<label>UnitCost :</label><input type="number" id="unit" oninput="process2()" />
+<label>Quantity :</label><input type="number" id="quantity" oninput="process3()" />
+
+
+
+
+
+
+
+<div id="underInput">
+{{# if u2}}
+
+{{response}}
+
+{{/if}}
+
+</div>
+<div id="unitCost"></div>
+<div id="qt"></div>
+
+
+</body>
+
+</html>
